@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketSense AI - Análise Inteligente de Mercado</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="header-title">MarketSense AI</h1>
+                    <p class="header-subtitle">Análise Inteligente de Mercado para E-commerce</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Search Section -->
+                <div id="search-section" class="search-section">
+                    <div class="search-container">
+                        <div class="search-background"></div>
+                        <div class="search-content">
+                            <div class="search-input-group">
+                                <div class="search-input-container">
+                                    <i data-lucide="search" class="search-icon"></i>
+                                    <input 
+                                        type="text" 
+                                        id="search-input" 
+                                        class="search-input" 
+                                        placeholder="Digite o nome do produto (ex: tênis esportivo, smartphone)"
+                                    >
+                                </div>
+                                <button id="search-button" class="search-button">
+                                    <span class="search-button-text">Pesquisar</span>
+                                    <i data-lucide="loader-2" class="search-loading-icon hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="results-section" class="results-section hidden">
+                    <!-- First Row - Trend Chart and Map -->
+                    <div class="grid-row">
+                        <div id="trend-chart-card" class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="trending-up"></i>
+                                    </div>
+                                    Interesse ao longo do tempo
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="trend-chart"></canvas>
+                                </div>
+                                <div id="current-month-info" class="current-month-info"></div>
+                            </div>
+                        </div>
+
+                        <div id="brazil-map-card" class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="map-pin"></i>
+                                    </div>
+                                    Regiões de interesse
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div id="brazil-map-container" class="map-container">
+                                    <div id="brazil-map" class="brazil-map"></div>
+                                </div>
+                                <div id="map-legend" class="map-legend"></div>
+                                <div id="state-popup" class="state-popup hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row - Demographics and Competitors -->
+                    <div class="grid-row">
+                        <div id="demographics-card" class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="users"></i>
+                                    </div>
+                                    Demografia e mercado
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="demographics-chart"></canvas>
+                                </div>
+                                <div id="avg-income-info" class="avg-income-info"></div>
+                            </div>
+                        </div>
+
+                        <div id="competitors-card" class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="target"></i>
+                                    </div>
+                                    Concorrência
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div id="competitors-table-container" class="table-container">
+                                    <table id="competitors-table" class="competitors-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Produto</th>
+                                                <th>Preço</th>
+                                                <th>Avaliação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Row - Price and Sales Insights -->
+                    <div class="grid-row">
+                        <div id="suggested-price-card" class="card price-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="dollar-sign"></i>
+                                    </div>
+                                    Preço sugerido
+                                </div>
+                            </div>
+                            <div class="card-content price-content">
+                                <div class="price-display">
+                                    <div id="suggested-price" class="price-value"></div>
+                                    <div class="price-subtitle">
+                                        <i data-lucide="trending-up"></i>
+                                        <span>Baseado na análise de mercado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="sales-insights-card" class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon">
+                                        <i data-lucide="bar-chart-3"></i>
+                                    </div>
+                                    Insights de vendas
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div id="sales-insights-content" class="sales-insights-content"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Row - AI Insights -->
+                    <div class="grid-row">
+                        <div id="ai-insights-card" class="card ai-insights-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <div class="card-icon ai-icon">
+                                        <i data-lucide="brain"></i>
+                                    </div>
+                                    <div>
+                                        <h3>Insights e recomendações de IA</h3>
+                                        <p class="card-subtitle">Análise detalhada baseada em dados de mercado</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div id="ai-insights-content" class="ai-insights-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/apiServices.js"></script>
+    <script src="js/components/TrendChart.js"></script>
+    <script src="js/components/BrazilMap.js"></script>
+    <script src="js/components/Demographics.js"></script>
+    <script src="js/components/CompetitorTable.js"></script>
+    <script src="js/components/SuggestedPrice.js"></script>
+    <script src="js/components/SalesInsights.js"></script>
+    <script src="js/components/AIInsights.js"></script>
+    <script src="js/components/SearchSection.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

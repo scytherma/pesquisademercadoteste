@@ -1,0 +1,688 @@
+/* Search Section */
+.search-section {
+    max-width: 48rem;
+    margin: 0 auto 3rem auto;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #dbeafe, #e0e7ff);
+    border-radius: 1rem;
+    filter: blur(40px);
+    opacity: 0.3;
+}
+
+.search-content {
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid #dbeafe;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.search-input-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.search-input-container {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #94a3b8;
+}
+
+.search-input {
+    width: 100%;
+    height: 3.5rem;
+    padding-left: 3rem;
+    font-size: 1.125rem;
+    border: none;
+    background: rgba(248, 250, 252, 0.5);
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.search-input:focus {
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-button {
+    height: 3.5rem;
+    padding: 0 2rem;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-button:hover:not(:disabled) {
+    background: linear-gradient(to right, #1d4ed8, #4338ca);
+    transform: translateY(-1px);
+}
+
+.search-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.search-loading-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    animation: spin 1s linear infinite;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid #dbeafe;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.card-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+.card-icon {
+    padding: 0.5rem;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon i {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+}
+
+.ai-icon {
+    padding: 0.75rem;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    border-radius: 0.75rem;
+}
+
+.ai-icon i {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.card-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Chart Container */
+.chart-container {
+    height: 16rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Current Month Info */
+.current-month-info {
+    background: linear-gradient(to right, #eff6ff, #eef2ff);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #dbeafe;
+    text-align: center;
+}
+
+.current-month-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.current-month-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Map Styles */
+.map-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.brazil-map {
+    width: 100%;
+    height: auto;
+}
+
+.map-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+}
+
+.legend-label {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.state-popup {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.state-name {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.state-interest {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.state-level {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Demographics */
+.avg-income-info {
+    background: linear-gradient(to right, #eff6ff, #eef2ff);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #dbeafe;
+}
+
+.avg-income-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.avg-income-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+/* Competitors Table */
+.table-container {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+}
+
+.competitors-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.competitors-table th {
+    background: #f8fafc;
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.competitors-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.competitors-table tr:hover {
+    background: rgba(248, 250, 252, 0.5);
+}
+
+.product-name {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.price-value {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.price-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.price-badge.low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.price-badge.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.price-badge.high {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.rating-display {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.star {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.star.filled {
+    color: #fbbf24;
+    fill: currentColor;
+}
+
+.star.empty {
+    color: #d1d5db;
+}
+
+.rating-value {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+/* Price Card */
+.price-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 50%, #eef2ff 100%);
+    border-color: #a7f3d0;
+}
+
+.price-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 8rem;
+}
+
+.price-display {
+    text-align: center;
+}
+
+.price-value {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #059669, #16a34a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.price-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    color: #059669;
+}
+
+.price-subtitle i {
+    width: 1rem;
+    height: 1rem;
+}
+
+.price-subtitle span {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Sales Insights */
+.sales-insights-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 0.75rem;
+}
+
+.insight-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #2563eb;
+    margin-top: 0.125rem;
+}
+
+.insight-content h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e3a8a;
+    margin-bottom: 0.25rem;
+}
+
+.insight-content p {
+    font-size: 0.875rem;
+    color: #1e40af;
+}
+
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.badge.danger {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* AI Insights */
+.ai-insights-card {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 50%, #fce7f3 100%);
+    border-color: #c084fc;
+}
+
+.ai-insights-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.viability-assessment {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #c084fc;
+    border-radius: 0.75rem;
+}
+
+.viability-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+}
+
+.viability-icon.good {
+    color: #16a34a;
+}
+
+.viability-icon.medium {
+    color: #ca8a04;
+}
+
+.viability-icon.bad {
+    color: #dc2626;
+}
+
+.viability-content {
+    flex: 1;
+}
+
+.viability-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.viability-title {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.viability-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.viability-badge.good {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.viability-badge.medium {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.viability-badge.bad {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.recommendations-section {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #c084fc;
+    border-radius: 0.75rem;
+}
+
+.recommendations-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+}
+
+.recommendations-title i {
+    width: 1rem;
+    height: 1rem;
+    color: #6366f1;
+}
+
+.recommendations-text {
+    color: #374151;
+    line-height: 1.6;
+}
+
+.market-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.summary-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #c084fc;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+.summary-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 auto 0.5rem auto;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.summary-icon.analysis {
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+}
+
+.summary-icon.ai {
+    background: linear-gradient(to right, #10b981, #16a34a);
+}
+
+.summary-icon.pricing {
+    background: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.summary-value {
+    font-size: 0.875rem;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Results Section Animation */
+.results-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.results-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-input-group {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        height: 3rem;
+        font-size: 1rem;
+    }
+    
+    .search-button {
+        height: 3rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .price-value {
+        font-size: 2rem;
+    }
+    
+    .market-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-legend {
+        grid-template-columns: 1fr;
+    }
+}
